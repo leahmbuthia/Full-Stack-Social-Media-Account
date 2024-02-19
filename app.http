@@ -1,26 +1,35 @@
 ### get all by id 
-//get all Users
-###
-GET http://localhost:8800/api/users
-
-### Request // filter Users with pages and limit
-
-### //get Users by id
-GET http://localhost:8800/api/users/05227124-61ee-470f-b683-57effec2e25d
-
-### //create todo
+### //create Create
 POST http://localhost:8800/api/users 
 content-Type: application/json
 
 {
-    "Username": "leah",
-    "Email":"leah@gmail.com",
-    "Password":"leah1",
+    "Username": "leahjjjj",
+    "Email":"kinedep524@minhlun.com",
+    "Password":"12345678099",
     "TagName":"leah1",
     "Location":"Nyandarua"
    
 }
+### //login user
+POST http://localhost:8800/api/users/auth/login
+content-Type: application/json
 
+{
+    "Email": "leah123@gmail.com",
+    "Password" : "5890"
+}
+
+//send mail
+###
+GET http://localhost:8800/send-mail
+
+//Get all Users
+###
+GET http://localhost:8800/api/users
+
+### //get Users by id
+GET http://localhost:8800/api/users/05227124-61ee-470f-b683-57effec2e25d
 
 ### //update users
 PUT http://localhost:8800/api/users/05227124-61ee-470f-b683-57effec2e25d
@@ -29,12 +38,12 @@ Content-Type: application/json
 {
  "Username": "nyambu",
     "Email":"nyambura@gmail.com",
-    "Password":"naymbura",
+    "Password":"leah",
     "TagName":"@nyambura",
     "Location":"Nyeri"  
 }
 ### //delete Users
-DELETE http://localhost:8800/api/users/1aa2ed86-fa48-41de-8e56-d3651f95531a
+DELETE http://localhost:8800/api/users/ad6450d9-a755-4921-b799-a56bf045854e
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////

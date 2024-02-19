@@ -1,5 +1,6 @@
 import { sql } from "../utils/dbConnect.js";
 import { poolRequest } from "../utils/dbConnect.js";
+
 export const getUsersServices =async ()=>{
     try {
         const result =await poolRequest().query("SELECT * FROM Tbl_User");
@@ -9,6 +10,7 @@ export const getUsersServices =async ()=>{
         return error.message;
     }
 }
+
 
 export const addUsersService = async (User) => {
     try {
@@ -25,6 +27,45 @@ export const addUsersService = async (User) => {
         return error;
     }
 }
+export const getUserByEmailService = async (Email) => {
+    try {
+      const result = await poolRequest()
+        .input("Email", sql.VarChar(255), Email)
+        .query("SELECT * FROM Tbl_User WHERE Email = @Email");
+   
+      return result.recordset[0];
+    } catch (error) {
+      throw error;
+    }
+  };
+//   export const findByCredentialsService = async (user) => {
+//     try {
+//         const userFoundResponse=await poolRequest()
+//         .input('Email', sql.VarChar, user.Email)
+//         .query('SELECT * FROM tbl_user WHERE Email=@Email')
+      
+//         if(userFoundResponse.recordset[0]){
+//           if(await bcrypt.compare(user.Password,userFoundResponse.recordset[0].Password)){
+      
+//             let token=jwt.sign({
+//               UserID:userFoundResponse.recordset[0].UserID,
+//               Password:userFoundResponse.recordset[0].Password,
+//               Email:userFoundResponse.recordset[0].Email
+//             },process.env.SECRET_KEY,{ expiresIn: "24h" })
+//             console.log("Token is",token);
+//             const {Password,...user}=userFoundResponse.recordset[0]
+//             return {user,token:`JWT ${token}`}
+      
+//           }else{
+//             return { error: 'Invalid Credentials' };
+//           }
+//         }else{
+//           return { error: 'Invalid Credentials' };
+//         }
+//       } catch (error) {
+//         return error
+//       }
+// };
 export const updateUsersService = async (User) => {
     try {
         const result = await poolRequest()

@@ -1,3 +1,7 @@
+
+export const notAuthorized = (res, message) => {
+    return res.status(401).json({ message: message });
+}
 export const sendBadRequest = (res, message) => {
     return res.status(400).json({ message: message });
 }
