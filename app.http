@@ -1,0 +1,325 @@
+### get all by id 
+//get all Users
+###
+GET http://localhost:8800/api/users
+
+### Request // filter Users with pages and limit
+
+### //get Users by id
+GET http://localhost:8800/api/users/05227124-61ee-470f-b683-57effec2e25d
+
+### //create todo
+POST http://localhost:8800/api/users 
+content-Type: application/json
+
+{
+    "Username": "leah",
+    "Email":"leah@gmail.com",
+    "Password":"leah1",
+    "TagName":"leah1",
+    "Location":"Nyandarua"
+   
+}
+
+
+### //update users
+PUT http://localhost:8800/api/users/05227124-61ee-470f-b683-57effec2e25d
+Content-Type: application/json
+
+{
+ "Username": "nyambu",
+    "Email":"nyambura@gmail.com",
+    "Password":"naymbura",
+    "TagName":"@nyambura",
+    "Location":"Nyeri"  
+}
+### //delete Users
+DELETE http://localhost:8800/api/users/1aa2ed86-fa48-41de-8e56-d3651f95531a
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+######GROUP TABLE
+
+
+### //create Post
+POST http://localhost:8800/api/groups 
+content-Type: application/json
+
+{
+    "GroupName": "Group2",
+    "Description":"which fetched from the database.",
+    "CreatedDate":"15-Feb-2024"
+   
+}
+//get all Groups
+####
+GET http://localhost:8800/api/groups
+### //get Group  by id
+GET http://localhost:8800/api/groups/171b48cc-30b3-4b07-ad6b-37fcd563fa92
+
+
+### //update todo
+PUT http://localhost:8800/api/groups/7e26b00b-762c-4f3b-9ab8-57f043b58601
+Content-Type: application/json
+
+{
+    "GroupName": "Group3",
+    "Description":"which database.",
+    "CreatedDate":"15-Feb-2024" 
+}
+
+
+### //delete todo
+ DELETE http://localhost:8800/api/groups/79a81607-9edd-4cb5-a2ae-22c6e9e52ded
+//////////////////////////////////////////////////////////////////////////////////////////
+ ##### EVENTS Table
+### //create Events
+POST http://localhost:8800/api/events
+content-Type: application/json
+
+{
+    "EventName":"Fjhht",
+    "Description":"Ladies outing",
+    "EventDate":"20-Feb-2024",
+    "Location":"Ruiro Garden Resort",
+    "EventPosterURL": "http//www/ruiro.kenya"
+   
+}
+//get all posts
+####
+GET http://localhost:8800/api/events
+### //get Group  by id
+GET http://localhost:8800/api/events/1731971b-2ca8-4249-aecb-010622037800
+
+
+### //update todo
+PUT http://localhost:8800/api/events/1731971b-2ca8-4249-aecb-010622037800
+Content-Type: application/json
+
+{
+   "EventName":"FirstEvent",
+    "Description":"Ladies outing",
+    "EventDate":"20-Feb-2024",
+    "Location":"Ruiro Garden Resort",
+    "EventPosterURL": "http//www/ruiro.kenya"
+}
+
+
+### //delete Events
+ DELETE http://localhost:8800/api/events/306c2ef2-c576-4c67-8667-034dcdba28b0
+////////////////////////////////////////////////////////////////////////////////////////
+### POsts 
+### create a post
+POST http://localhost:8800/api/posts
+Content-Type: application/json
+
+{
+    "UserID": "05227124-61ee-470f-b683-57effec2e25d" ,
+    "Content": "This week reported error",
+    "Likes": 10,
+    "Comments": 5
+}
+
+### updating a single post
+PUT http://localhost:8800/api/posts/update/05227124-61ee-470f-b683-57effec2e25d
+Content-Type: application/json
+
+{
+     "Content": "I am loving this" ,
+    "Likes": 5,
+    "Comments": 6
+}
+
+
+### Fetching/getting all posts
+GET http://localhost:8800/api/posts
+
+
+
+### Fetching/getting single post
+GET http://localhost:8800/api/posts/single/05227124-61ee-470f-b683-57effec2e25d
+
+
+
+### Deleting a single post
+DELETE  http://localhost:8800/api/posts/delete/05227124-61ee-470f-b683-57effec2e25d
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+#####
+### //get all comments
+GET http://localhost:8800/api/comments
+
+### create a comment
+POST http://localhost:8800/api/comments
+Content-Type: application/json
+
+{
+    "UserID": "017e6d02-567c-42de-9feb-b58a9e7fba4a" ,
+    "PostID": "b28a2524-3d59-4334-9878-bd28efec9696" ,
+    "Content": "What a day" 
+}
+### // delete a comment
+DELETE http://localhost:8800/api/comment/1
+
+
+### //get a comment by its id 
+//-------------get a comment for a certain user
+GET http://localhost:8800/api/comment
+
+### //get a comment by its id 
+GET http://localhost:8800/api/comment/3
+
+### // update a comment by id
+PUT http://localhost:8800/api/comment/3
+content-Type: application/json
+
+{
+    "Content": "just another comment333"
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+#####
+### //get all Photos
+GET http://localhost:8800/api/photos
+
+### // create a new comment
+POST http://localhost:8800/api/photos
+Content-Type: application/json
+
+{ 
+    "UserID": "1",
+    "PhotoURL": "/hello lear",
+    "UploadDate": "2024-40-02"
+}
+
+
+### // delete a comment
+DELETE http://localhost:8800/api/photos/2112ca89-d655-4b96-815a-b161645e229c
+
+### //get a comment by its id 
+GET http://localhost:8800/api/photos/2
+
+### // update a comment by id
+PUT http://localhost:8800/api/photos/2
+Content-Type: application/json
+
+{
+   "UserID": "1",
+   "PhotoURL": "hrtuhjbcdn",
+   "UploadDate": "2023-01-15"
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
+### create amessages
+POST http://localhost:8800/api/messages
+Content-Type: application/json
+
+{
+    
+    "SenderID": "1" ,
+    "ReceiverID": "2",
+    "MessageDate":"2023-01-15",
+    "Content":"leah sleep"
+  
+}
+
+### updating a single messages
+PUT http://localhost:8800/api/messages/39778125-982f-4888-88b2-634c769e65de
+Content-Type: application/json
+
+{
+     "Content": "I am loving this" ,
+    "Likes": 5,
+    "Comments": 6
+}
+
+
+### Fetching/getting all messages
+GET http://localhost:8800/api/messages
+
+
+
+### Fetching/getting single messages
+GET http://localhost:8800/api/messages/39778125-982f-4888-88b2-634c769e65de
+
+
+
+### Deleting a single messages
+DELETE  http://localhost:8800/api/messages/39778125-982f-4888-88b2-634c769e65de
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+### create a friendship
+POST http://localhost:8800/api/friends
+Content-Type: application/json
+
+{
+    
+    "User1ID": "1" ,
+    "User2ID": "2",
+    "FriendshipDate":"2024-02-16T00:48:49.790Z"
+   
+  
+}
+
+### updating a single friends
+PUT http://localhost:8800/api/friends/2
+Content-Type: application/json
+
+{
+     "User1ID": "2" ,
+    "User2ID": "1",
+    "FriendshipDate": "2024-02-16T00:48:49.790Z"
+}
+
+
+### Fetching/getting all friends
+GET http://localhost:8800/api/friends
+
+
+
+### Fetching/getting single friends
+GET http://localhost:8800/api/friends/2
+
+
+
+### Deleting a single friends
+DELETE  http://localhost:8800/api/friends/1
+#
+///////////////////////////////////////////////////////////////////////////////////////
+
+### EventAttendeee
+
+POST http://localhost:8800/api/eventAttendees
+Content-Type: application/json
+
+{
+    
+    "AttendeeID": "1" 
+
+   
+  
+}
+
+### updating a single friends
+PUT http://localhost:8800/api/eventAttendees/2
+Content-Type: application/json
+
+{
+     "AttendeeID":"2"
+}
+
+
+### Fetching/getting all friends
+GET http://localhost:8800/api/eventAttendees
+
+
+
+### Fetching/getting single friends
+GET http://localhost:8800/api/eventAttendees/2
+
+
+
+### Deleting a single friends
+DELETE  http://localhost:8800/api/eventAttendees/1
