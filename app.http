@@ -4,9 +4,9 @@ POST http://localhost:8800/api/users
 content-Type: application/json
 
 {
-    "Username": "leahjjjj",
-    "Email":"kinedep524@minhlun.com",
-    "Password":"12345678099",
+    "Username": "leah",
+    "Email":"leahnyambura682@gmail.com",
+    "Password":"1234567",
     "TagName":"leah1",
     "Location":"Nyandarua"
    
@@ -15,14 +15,16 @@ content-Type: application/json
 POST http://localhost:8800/api/users/auth/login
 content-Type: application/json
 
+
 {
-    "Email": "leah123@gmail.com",
-    "Password" : "5890"
+    "Email": "leahnyambura682@gmail.com",
+    "Password" : "1234567"
 }
 
 //send mail
 ###
 GET http://localhost:8800/send-mail
+
 
 //Get all Users
 ###
@@ -30,10 +32,12 @@ GET http://localhost:8800/api/users
 
 ### //get Users by id
 GET http://localhost:8800/api/users/05227124-61ee-470f-b683-57effec2e25d
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzZDNmM2IyOS02ZWYzLTQwMjEtODExZS1kMGI0YjRmMzM0YzYiLCJpYXQiOjE3MDgzNTMyMjAsImV4cCI6MTcwODQzOTYyMH0.he7WkRRaQWw9bQXZ-gpaG508faXe1QkW1DGSmERHtjQ
 
 ### //update users
-PUT http://localhost:8800/api/users/05227124-61ee-470f-b683-57effec2e25d
+PUT http://localhost:8800/api/users/3
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIzZDNmM2IyOS02ZWYzLTQwMjEtODExZS1kMGI0YjRmMzM0YzYiLCJpYXQiOjE3MDgzNTMyMjAsImV4cCI6MTcwODQzOTYyMH0.he7WkRRaQWw9bQXZ-gpaG508faXe1QkW1DGSmERHtjQ
 
 {
  "Username": "nyambu",
@@ -53,6 +57,7 @@ DELETE http://localhost:8800/api/users/ad6450d9-a755-4921-b799-a56bf045854e
 ### //create Post
 POST http://localhost:8800/api/groups 
 content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 {
     "GroupName": "Group2",
@@ -65,11 +70,12 @@ content-Type: application/json
 GET http://localhost:8800/api/groups
 ### //get Group  by id
 GET http://localhost:8800/api/groups/171b48cc-30b3-4b07-ad6b-37fcd563fa92
-
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 ### //update todo
 PUT http://localhost:8800/api/groups/7e26b00b-762c-4f3b-9ab8-57f043b58601
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 {
     "GroupName": "Group3",
@@ -80,11 +86,13 @@ Content-Type: application/json
 
 ### //delete todo
  DELETE http://localhost:8800/api/groups/79a81607-9edd-4cb5-a2ae-22c6e9e52ded
+ 
 //////////////////////////////////////////////////////////////////////////////////////////
  ##### EVENTS Table
 ### //create Events
 POST http://localhost:8800/api/events
 content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 {
     "EventName":"Fjhht",
@@ -99,11 +107,13 @@ content-Type: application/json
 GET http://localhost:8800/api/events
 ### //get Group  by id
 GET http://localhost:8800/api/events/1731971b-2ca8-4249-aecb-010622037800
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 
 ### //update todo
 PUT http://localhost:8800/api/events/1731971b-2ca8-4249-aecb-010622037800
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 {
    "EventName":"FirstEvent",
@@ -121,6 +131,7 @@ Content-Type: application/json
 ### create a post
 POST http://localhost:8800/api/posts
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 {
     "UserID": "05227124-61ee-470f-b683-57effec2e25d" ,
@@ -132,6 +143,7 @@ Content-Type: application/json
 ### updating a single post
 PUT http://localhost:8800/api/posts/update/05227124-61ee-470f-b683-57effec2e25d
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 {
      "Content": "I am loving this" ,
@@ -148,10 +160,11 @@ GET http://localhost:8800/api/posts
 ### Fetching/getting single post
 GET http://localhost:8800/api/posts/single/05227124-61ee-470f-b683-57effec2e25d
 
-
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 ### Deleting a single post
 DELETE  http://localhost:8800/api/posts/delete/05227124-61ee-470f-b683-57effec2e25d
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 
 
@@ -164,6 +177,7 @@ GET http://localhost:8800/api/comments
 ### create a comment
 POST http://localhost:8800/api/comments
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 {
     "UserID": "017e6d02-567c-42de-9feb-b58a9e7fba4a" ,
@@ -172,6 +186,7 @@ Content-Type: application/json
 }
 ### // delete a comment
 DELETE http://localhost:8800/api/comment/1
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 
 ### //get a comment by its id 
@@ -184,6 +199,7 @@ GET http://localhost:8800/api/comment/3
 ### // update a comment by id
 PUT http://localhost:8800/api/comment/3
 content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 {
     "Content": "just another comment333"
@@ -198,6 +214,7 @@ GET http://localhost:8800/api/photos
 ### // create a new comment
 POST http://localhost:8800/api/photos
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 { 
     "UserID": "1",
@@ -208,6 +225,7 @@ Content-Type: application/json
 
 ### // delete a comment
 DELETE http://localhost:8800/api/photos/2112ca89-d655-4b96-815a-b161645e229c
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 ### //get a comment by its id 
 GET http://localhost:8800/api/photos/2
@@ -215,6 +233,7 @@ GET http://localhost:8800/api/photos/2
 ### // update a comment by id
 PUT http://localhost:8800/api/photos/2
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 {
    "UserID": "1",
@@ -225,6 +244,7 @@ Content-Type: application/json
 ### create amessages
 POST http://localhost:8800/api/messages
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 {
     
@@ -238,6 +258,7 @@ Content-Type: application/json
 ### updating a single messages
 PUT http://localhost:8800/api/messages/39778125-982f-4888-88b2-634c769e65de
 Content-Type: application/json
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 
 {
      "Content": "I am loving this" ,
@@ -249,8 +270,6 @@ Content-Type: application/json
 ### Fetching/getting all messages
 GET http://localhost:8800/api/messages
 
-
-
 ### Fetching/getting single messages
 GET http://localhost:8800/api/messages/39778125-982f-4888-88b2-634c769e65de
 
@@ -258,16 +277,18 @@ GET http://localhost:8800/api/messages/39778125-982f-4888-88b2-634c769e65de
 
 ### Deleting a single messages
 DELETE  http://localhost:8800/api/messages/39778125-982f-4888-88b2-634c769e65de
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwM2IyM2ZiOS0yOWZlLTRhMjQtOWE1Mi00MGZhOWZhOTllOWEiLCJpYXQiOjE3MDgzNTE4ODUsImV4cCI6MTcwODQzODI4NX0.gKMMrEr5PUVIu1-oTXLZIJFa-s6Z5RGjauFrkQ4h9vw
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 ### create a friendship
 POST http://localhost:8800/api/friends
 Content-Type: application/json
 
+
 {
     
     "User1ID": "1" ,
     "User2ID": "2",
-    "FriendshipDate":"2024-02-16T00:48:49.790Z"
+    "FriendshipDate":"44-05-2023"
    
   
 }

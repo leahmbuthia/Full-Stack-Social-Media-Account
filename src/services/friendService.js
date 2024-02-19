@@ -53,8 +53,8 @@ export const updateFriendshipService = async (updatedFriendship) => {
             .input('FriendShipID', sql.VarChar, updatedFriendship.FriendShipID)
             .input('User1ID', sql.VarChar, updatedFriendship.User1ID)
             .input('User2ID', sql.VarChar, updatedFriendship.User2ID)
-            .input('FriendShipDate', sql.DateTime, updatedFriendship.FriendShipDate)
-            .query(`UPDATE Friendship SET User1ID = @User1ID, User2ID = @User2ID, FriendShipDate = @FriendShipDate WHERE FriendShipID = @FriendShipID`);
+            // .input('FriendShipDate', sql.DateTime, updatedFriendship.FriendShipDate)
+            .query(`UPDATE Friendship SET User1ID = @User1ID, User2ID = @User2ID WHERE FriendShipID = @FriendShipID`);
 
         console.log('Updated Friendship:', updatedFriendshipResult);
         return updatedFriendshipResult;
