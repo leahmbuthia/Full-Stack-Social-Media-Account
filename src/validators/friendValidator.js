@@ -1,22 +1,22 @@
+
 import joi from 'joi';
 
-export const createFriendValidator = (friend) => {
-    const createFriendValidatorSchema = joi.object({
+export  const createFriendshipValidator=(friendship)=>{
+    const createFriendshipValidatorSchema=joi.object({
         User1ID: joi.string().required(),
-        User2ID: joi.string().required(),
-        
-        
-    });
+        User2ID: joi.string().required()
+    })
 
-    return createFriendValidatorSchema.validate(friend);
-};
+    return createFriendshipValidatorSchema.validate(friendship);
+}
 
-export const updateFriendValidator = (updatedFriend) => {
-    const updateFriendValidatorSchema = joi.object({
-        User1ID: joi.string().required(),
-        User2ID: joi.string().required(),
-        FriendshipDate: joi.date().required()
-    });
 
-    return updateFriendValidatorSchema.validate(updatedFriend);
-};
+
+// export  const updatePostValidator=(updatedpost)=>{
+//     const updatePostValidatorSchema=joi.object({
+//         FriendshipDate: joi.string().required()
+
+//     })
+
+//     return updatePostValidatorSchema.validate(updatedpost);
+// }

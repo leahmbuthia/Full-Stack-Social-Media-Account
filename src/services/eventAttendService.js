@@ -2,18 +2,21 @@ import { poolRequest } from "../utils/dbConnect.js";
 
 export const getEventAttendeesServices = async () => {
     try {
-        const result = await poolRequest().query("SELECT * FROM EventAttendee");
-        return result.recordset;
+        const allEventAttendee =await poolRequest()
+        .query("SELECT * FROM EventAttendee");
+        return allEventAttendee;
     } catch (error) {
         return error.message;
     }
 };
-export const addEventAttendeesService = async (eventAttendee) => {
+export const createEventAttendeesService = async (eventAttendee) => {
     try {
+        const query ='INSERT INTO EventAttendee (EventID, AttendeeID) VALUES (@EventID, @AttendeeID)';
         const result = await poolRequest()
             .input('EventID', sql.VarChar, eventAttendee.EventID)
             .input('AttendeeID', sql.VarChar, eventAttendee.AttendeeID)
-            .query("INSERT INTO EventAttendee (EventID, AttendeeID) VALUES (@EventID, @AttendeeID)");
+            .query(query);
+            console.log('results',result);
         return result;
     } catch (error) {
         return error;

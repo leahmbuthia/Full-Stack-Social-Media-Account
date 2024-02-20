@@ -1,49 +1,38 @@
 import { sql } from '../utils/dbConnect.js';
-import { getEventAttendeesServices } from "../services/eventAttendService.js";
+import { createEventAttendeesService, getEventAttendeesServices } from "../services/eventAttendService.js";
 import { sendNotFound, sendSeverError, paginate, orderData, checkIfValuesIsEmptyNullUndefined, sendCreated } from "../helper/helperFunctions.js";
-import { addEventAttendeesService, deleteEventAttendeeService, getEventAttendeeByIdService, updateEventAttendeesService } from '../services/eventAttendService.js';
-import { sendServerError } from '../Comment/Helper/responseFunction.js';
+import {  deleteEventAttendeeService, getEventAttendeeByIdService, updateEventAttendeesService } from '../services/eventAttendService.js';
+import { eventAttendeesValidator } from '../validators/eventAttendValidator.js';
+
 
 export const getEventAttendees = async (req, res) => {
     try {
-        const data = await getEventAttendeesServices(); // Update to use event attendees service
-        if (data.length === 0) {
-            sendNotFound(res, 'No EventAttendees found');
-        } else {
-            if (!req.query.page || !req.query.limit) {
-                if (req.query.order) {
-                    res.status(200).json(orderData(data, req.query.order));
-                } else {
-                    res.status(200).json(data);
-                }
-            } else {
-                if (req.query.order) {
-                    paginate(orderData(data, req.query.order), req, res);
-                } else {
-                    paginate(data, req, res);
+        const results = await getEventAttendeesServices()
+          const eventAttendee=results.recordset
+        res.status(200).json({ eventAttendee: eventAttendee });
+      } catch (error) {
+        console.error("Error fetching all group Members:", error);
+        res.status(500).json("Internal server error");
+      }
+    };
+export const createEventAttendees = async (req, res) => {
+        try {
+            const {EventID,AttendeeID } = req.body;
+            console.log(req.body);
+            const{error} = eventAttendeesValidator({ EventID,AttendeeID});
+            console.log("error",error);
+            if (error){
+                return res.status(400).send(error.details[0].message);
+            }else{
+                const createdEventAttendees = {EventID, AttendeeID};
+                const result =await createEventAttendeesService(createdEventAttendees);
+                if (result.message){
+                    sendSeverError(res, result.message)
+                }else{
+                    sendCreated(res,'EventAttendee created successfully');
                 }
             }
-        }
-    } catch (error) {
-        sendSeverError(res, error);
-    }
-};
-export const createEventAttendees = async (req, res) => {
-    const { EventID, AttendeeID } = req.body;
-    
-    // Validate input parameters (if needed)
-    
-    const { error } = eventAttendeesValidator(req.body); // Assuming you have a validator for event attendees
-    if (error) {
-        return res.status(400).send(error.details[0].message);
-    } else {
-        const newEventAttendee = {
-            EventID,
-            AttendeeID,
-        };
-
-        try {
-            let response = await addEventAttendeesService(newEventAttendee); // Update to use the service function for event attendees
+            let response = await createEventAttendeesService(newEventAttendee); // Update to use the service function for event attendees
             if (response.message) {
                 sendSeverError(res, response.message);
             } else {
@@ -53,7 +42,7 @@ export const createEventAttendees = async (req, res) => {
             console.error("Error creating event attendee:", err);
             return res.status(500).json({ error: "Internal server error" });
         }
-    }
+    
 };
 export const getEventAttendeeById = async (req, res) => {
     try {

@@ -1,16 +1,12 @@
 import { Router } from 'express';
-import { createFriendController, deleteFriendController, getAllFriendsController, getSingleFriendController, updateFriendController } from '../controller/friendController.js';
+import { createFriendshipController, deleteFriendshipController, getAllFriendshipsController, getSingleFriendshipController, updateFriendshipControllers } from '../controller/friendController.js';
 
 const friendRouter = Router();
 
-friendRouter.post('/friends', createFriendController);
-
-friendRouter.get('/friends', getAllFriendsController);
-
-friendRouter.get('/friends/:FriendshipID', getSingleFriendController);
-
-friendRouter.put('/friends/:FriendshipID', updateFriendController);
-
-friendRouter.delete('/friends/:FriendshipID', deleteFriendController);
+friendRouter.post('/friends', createFriendshipController);
+friendRouter.get('/friends', getAllFriendshipsController);
+friendRouter.get('/friends/:FriendshipID', getSingleFriendshipController);
+friendRouter.put('/friends/:FriendshipID', updateFriendshipControllers);
+friendRouter.delete('/friends/:FriendshipID', deleteFriendshipController);
 
 export default friendRouter;

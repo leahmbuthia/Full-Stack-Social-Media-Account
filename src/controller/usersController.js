@@ -1,5 +1,5 @@
 import { sql } from '../utils/dbConnect.js'
-import { getUsersServices,getUserByIdService ,addUsersService, updateUsersService, deleteUsersService, getUserByEmailService} from "../services/usersServices.js"
+import { getUsersServices,getUserByIdService ,addUsersService, updateUsersService, deleteUsersService, getUserByEmailService, findByCredentialsService} from "../services/usersServices.js"
 import { userLoginValidator,  usersValidator } from "../validators/usersValidator.js"
 import { sendNotFound, sendSeverError,paginate,orderData,checkIfValuesIsEmptyNullUndefined,sendCreated,sendDeleteSuccess, notAuthorized, sendBadRequest } from "../helper/helperFunctions.js";
 import {v4} from 'uuid';
@@ -14,33 +14,23 @@ import emailTemp from '../emailTemp.js';
 
 export const loginUser = async (req, res) => {
     try {
+        const { Email, Password } = req.body;
      
       const { error } = userLoginValidator(req.body);
       if (error) {
         return sendBadRequest(res, error.details[0].message);
-      }
-   
-      const { Email, Password } = req.body;
-   
+      }   
       // Check if the user exists
       const user = await getUserByEmailService(Email);
+      console.log("user",user);
       if (!user) {
         return sendNotFound(res, "User not found");
-      }
-   
-      // Compare passwords
-      const isPasswordValid = await bcrypt.compare(Password, user.Password);
-      if (!isPasswordValid) {
-        return sendBadRequest(res, "Invalid password");
-      }
-   
-      // Generate JWT token
-      const token = jwt.sign({ userId: user.UserID }, process.env.JWT_SECRET, {
-        expiresIn: "24h", // Set an appropriate expiration time
-      });
-   
-      // Send success message along with token
-      res.json({ message: "Logged in successfully", token });
+      }else{
+      const loggedInUser=await findByCredentialsService({Email, Password})
+        console.log("logged in",loggedInUser);
+    
+      res.json({ message: "Logged in successfully",loggedInUser});
+    }
     } catch (error) {
       sendServerError(res, error.message);
     }

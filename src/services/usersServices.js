@@ -1,5 +1,9 @@
 import { sql } from "../utils/dbConnect.js";
 import { poolRequest } from "../utils/dbConnect.js";
+import bcrypt from 'bcrypt';
+import jwt  from 'jsonwebtoken';
+import dotenv from 'dotenv'
+dotenv.config()
 
 export const getUsersServices =async ()=>{
     try {
@@ -38,34 +42,35 @@ export const getUserByEmailService = async (Email) => {
       throw error;
     }
   };
-//   export const findByCredentialsService = async (user) => {
-//     try {
-//         const userFoundResponse=await poolRequest()
-//         .input('Email', sql.VarChar, user.Email)
-//         .query('SELECT * FROM tbl_user WHERE Email=@Email')
+  export const findByCredentialsService = async (user) => {
+    try {
+        const userFoundResponse=await poolRequest()
+        .input('Email', sql.VarChar, user.Email)
+        .query('SELECT * FROM tbl_user WHERE Email=@Email')
       
-//         if(userFoundResponse.recordset[0]){
-//           if(await bcrypt.compare(user.Password,userFoundResponse.recordset[0].Password)){
+        if(userFoundResponse.recordset[0]){
+          if(await bcrypt.compare(user.Password,userFoundResponse.recordset[0].Password)){
       
-//             let token=jwt.sign({
-//               UserID:userFoundResponse.recordset[0].UserID,
-//               Password:userFoundResponse.recordset[0].Password,
-//               Email:userFoundResponse.recordset[0].Email
-//             },process.env.SECRET_KEY,{ expiresIn: "24h" })
-//             console.log("Token is",token);
-//             const {Password,...user}=userFoundResponse.recordset[0]
-//             return {user,token:`JWT ${token}`}
+            let token=jwt.sign({
+              UserID:userFoundResponse.recordset[0].UserID,
+              Password:userFoundResponse.recordset[0].Password,
+              Email:userFoundResponse.recordset[0].Email
+            },process.env.JWT_SECRET,{ expiresIn: "24h" })
+
+            console.log("Token is",token);
+            const {Password,...user}=userFoundResponse.recordset[0]
+            return {user,token:`JWT ${token}`}
       
-//           }else{
-//             return { error: 'Invalid Credentials' };
-//           }
-//         }else{
-//           return { error: 'Invalid Credentials' };
-//         }
-//       } catch (error) {
-//         return error
-//       }
-// };
+          }else{
+            return { error: 'Invalid Credentials' };
+          }
+        }else{
+          return { error: 'Invalid Credentials' };
+        }
+      } catch (error) {
+        return error
+      }
+};
 export const updateUsersService = async (User) => {
     try {
         const result = await poolRequest()

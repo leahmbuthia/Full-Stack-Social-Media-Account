@@ -20,18 +20,19 @@ export const createCommentService = async (comment) => {
       }
 };
 
+
 export const updateCommentService = async (updateComment) => {
     try {
         const updatedComment = await poolRequest()
             .input('CommentID', sql.VarChar, updateComment.CommentID)
             .input('Content', sql.VarChar, updateComment.Content)
-            .query(`UPDATE Comment SET Content = @Content WHERE CommentID = @CommentID`);
-
-        console.log('Updated Comment:', updatedComment);
-        return updatedComment;
+            .input('CommentDate', sql.VarChar, updateComment.CommentDate)
+            .query(`UPDATE Comment SET Content = @Content, CommentDate = @CommentDate WHERE CommentID = @CommentID`);
+            console.log("updated",updatedComment.recordset);
+        return updatedComment.recordset; // Assuming you want to return the updated comment
     } catch (error) {
         console.error('Error in updateCommentService:', error);
-        throw error;
+        return error;
     }
 };
 

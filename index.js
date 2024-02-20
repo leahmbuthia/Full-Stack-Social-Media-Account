@@ -11,8 +11,8 @@ import photoRouter from './src/routers/photoRouter.js';
 import friendRouter from './src/routers/friendRouter.js';
 import eventAttendeesRouter from './src/routers/eventAttendRouter.js';
 import commentRouter from './src/routers/commentRouter.js';
-import nodemailer from 'nodemailer';
 import rateLimitMiddleware from './src/middleware/rateLimitMiddleware.js';
+import groupMemberRouter from './src/routers/groupMemberRouter.js';
 // import emailTemp from './emailTemp.js';
 
 
@@ -38,6 +38,7 @@ app.use('/api',commentRouter);
 app.use('/api',photoRouter);
 app.use('/api',friendRouter);
 app.use('api',eventAttendeesRouter);
+app.use('/api',groupMemberRouter)
 
 
 
