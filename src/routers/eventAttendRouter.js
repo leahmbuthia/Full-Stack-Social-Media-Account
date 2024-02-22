@@ -3,10 +3,10 @@ import { getEventAttendees, createEventAttendees, updateEventAttendee, getEventA
 
 const eventAttendeesRouter = Router();
 
-eventAttendeesRouter.get('/eventAttendees', getEventAttendees);
-eventAttendeesRouter.post('/eventAttendees', createEventAttendees);
-eventAttendeesRouter.put('/eventAttendees/:AttendeeID', updateEventAttendee);
-eventAttendeesRouter.get('/eventAttendees/:AttendeeID', getEventAttendeeById);
-eventAttendeesRouter.delete('/eventAttendees/:AttendeeID', deleteEventAttendee);
+eventAttendeesRouter.post('/attendees', createEventAttendees);
+eventAttendeesRouter.get('/attendees', getEventAttendees);
+eventAttendeesRouter.put('/attendees/:AttendeeID', updateEventAttendee);
+eventAttendeesRouter.get('/attendees/:AttendeeID', getEventAttendeeById);
+eventAttendeesRouter.delete('/attendees/:AttendeeID', deleteEventAttendee);
 
 export default eventAttendeesRouter;

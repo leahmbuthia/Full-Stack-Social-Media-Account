@@ -328,7 +328,7 @@ Content-Type: application/json
 }
 
 ### updating a single friends
-PUT http://localhost:8800/api/eventAttendees/2
+PUT http://localhost:8800/api/attendees/2
 Content-Type: application/json
 
 {
@@ -337,17 +337,17 @@ Content-Type: application/json
 
 
 ### Fetching/getting all friends
-GET http://localhost:8800/api/eventAttendees
+GET http://localhost:8800/api/attendees
 
 
 
 ### Fetching/getting single friends
-GET http://localhost:8800/api/eventAttendees/2
+GET http://localhost:8800/api/attendees/2
 
 
 
 ### Deleting a single friends
-DELETE  http://localhost:8800/api/eventAttendees/1
+DELETE  http://localhost:8800/api/attendees/1
 
 
 ###****************************************************************************************************************************************************************************************
@@ -358,7 +358,7 @@ Content-Type: application/json
 
 {
      "GroupID":"2",
-    "MemberID":"2"
+    "MemberID":"03b23fb9-29fe-4a24-9a52-40fa9fa99e9a"
   
   
 }
